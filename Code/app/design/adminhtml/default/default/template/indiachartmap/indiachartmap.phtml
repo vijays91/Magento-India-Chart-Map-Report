@@ -1,0 +1,51 @@
+<?php
+/*- init helper -*/
+$helper = Mage::helper('indiachartmap');
+$bg_color 		= $helper->icmap_bgcolor();
+$border_color 	= $helper->icmap_bordercolor();
+$color 			= $helper->icmap_color();
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head">
+				<?php echo $this->__('India Chart Map');?>
+				</h3>
+			</td>
+            <td class="form-buttons">&nbsp;</td>
+        </tr>
+    </tbody></table>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div id="vmap" style="width: 100%; height:700px;border: 1px solid activeborder;"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	data = [];
+	var json = '<?php echo $this->getTotalOrdersByStates(); ?>';
+	json = JSON.parse(json);
+	for (i in json) {
+		data[i] = json[i]['total'];
+	}
+    jQuery('#vmap').vectorMap({
+        map: 'india_en',
+        backgroundColor: '<?php echo $bg_color; ?>',
+        borderColor: '<?php echo $border_color; ?>',
+        color: '<?php echo $color; ?>',
+        enableZoom: true,
+        showTooltip: true,
+        zoomOnScroll: true,
+		values: data,
+        normalizeFunction: 'polynomial',
+        onLabelShow: function(event, label, code) {
+			if (json != null && json[code]) {
+				label.html('<strong>' + label.text() + '</strong><br />' + '<?php echo "Order(s) "; ?> ' + json[code]['total'] + '<br />' + '<?php echo "Sale(s) "; ?> ' + json[code]['amount']);
+			}
+        }
+    });
+});
+document.getElementById("vmap").style.padding = "10px";
+</script> 

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+        <indiachartmap module="indiachartmap">
+            <title>India Chart Map</title>
+            <sort_order>71</sort_order>
+            <children>
+                <indiamap module="indiachartmap">
+                    <title>Map Reports</title>
+                    <sort_order>80</sort_order>
+                    <action>indiachartmap/adminhtml_indiachartmap/map</action>
+                </indiamap>
+				<settings translate="title" module="indiachartmap">
+                    <title>General Settings</title>
+                    <action>adminhtml/system_config/edit/section/indiachartmap_tab</action>
+                    <sort_order>130</sort_order>
+                </settings>
+            </children>
+        </indiachartmap>
+    </menu>
+	
+    <acl>
+        <resources>
+			<all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+			    <children>
+					<indiachartmap>
+						<title>India Chart Map</title>
+						<children>
+							<indiamap>
+								<title>Map Reports</title>
+							</indiamap>
+						</children>
+					</indiachartmap>		
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <indiachartmap_tab>
+                                        <title>India Chart Map Setting</title>
+                                    </indiachartmap_tab>				
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

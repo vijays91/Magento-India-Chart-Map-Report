@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Learn_IndiaChartmap>
+            <version>1.0.0</version>
+        </Learn_IndiaChartmap>
+    </modules>
+
+	<frontend>
+		<routers>
+			<indiachartmap>
+				<use>standard</use>
+				<args>
+					<module>Learn_IndiaChartmap</module>
+					<frontName>indiachartmap</frontName>
+				</args>
+			</indiachartmap>
+		</routers>
+        <!--
+		<layout>
+			<updates>
+				<indiachartmap>
+					<file>learn/indiachartmap.xml</file>
+				</indiachartmap>
+			</updates>
+		</layout>
+        -->
+	</frontend>
+
+    <global>
+		<blocks>
+            <indiachartmap>
+                <class>Learn_IndiaChartmap_Block</class>
+            </indiachartmap>
+        </blocks>
+		<!-- Initialize the Helper class -->
+		<helpers>
+			<indiachartmap>
+				<class>Learn_IndiaChartmap_Helper</class>
+			</indiachartmap>
+		</helpers>
+        <!-- Adding India States -->
+        <resources>
+            <indiachartmap_setup>
+                <setup>
+                    <module>Learn_IndiaChartmap</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </indiachartmap_setup>
+            <indiachartmap_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </indiachartmap_write>
+            <indiachartmap_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </indiachartmap_read>
+        </resources>        
+    </global>
+	
+	<admin>
+        <routers>
+            <indiachartmap>
+                <use>admin</use>
+                <args>
+                    <module>Learn_IndiaChartmap</module>
+                    <frontName>indiachartmap</frontName>
+                </args>
+            </indiachartmap>
+        </routers>
+    </admin>
+	
+	<adminhtml>
+		<layout>
+			<updates>
+				<indiachartmap module="indiachartmap">
+					<file>learn/indiachartmap.xml</file>
+				</indiachartmap>
+			</updates>
+		</layout>
+	</adminhtml>
+	
+	<default>
+		<indiachartmap_tab>
+			<indiachartmap_setting>
+				<indiachartmap_bgcolor>#008080</indiachartmap_bgcolor>
+				<indiachartmap_bordercolor>#FFFF00</indiachartmap_bordercolor>
+				<indiachartmap_color>#ffffff</indiachartmap_color>
+				<jquery_enable>1</jquery_enable>
+			</indiachartmap_setting>
+		</indiachartmap_tab>
+	</default>	
+</config>

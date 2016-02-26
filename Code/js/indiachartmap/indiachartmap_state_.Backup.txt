@@ -1,0 +1,78 @@
+1	IN-AN	Andaman and Nicobar
+2	IN-BR	Bihar
+3	IN-MZ	Mizoram
+4	IN-DD	Daman and Diu
+5	IN-DN	Dadra and Nagar Haveli
+6	IN-DL	Delhi
+7	IN-NL	Nagaland
+8	IN-WB	West Bengal
+9	IN-HR	Haryana
+10	IN-HP	Himachal Pradesh
+11	IN-AS	Assam
+12	IN-UT	Uttaranchal
+13	IN-JH	Jharkhand
+14	IN-JK	Jammu and Kashmir
+15	IN-UP	Uttar Pradesh
+16	IN-SK	Sikkim
+17	IN-CT	Chhattisgarh
+18	IN-CH	Chandigarh
+19	IN-GA	Goa
+20	IN-GJ	Gujarat
+21	IN-RJ	Rajasthan
+22	IN-MP	Madhya Pradesh
+23	IN-MH	Maharashtra
+24	IN-TN	Tamil Nadu
+25	IN-PY	Puducherry
+26	IN-AP	Andhra Pradesh
+27	IN-TR	Tripura
+28	IN-AR	Arunachal Pradesh
+29	IN-KA	Karnataka
+30	IN-PB	Punjab
+31	IN-ML	Meghalaya
+32	IN-MN	Manipur
+33	IN-OR	Orissa
+34	IN-KL	Kerala
+------------------------------
+
+
+
+
+INSERT INTO `directory_country_region` VALUES
+(NULL , 'IN', 'AN','Andaman and Nicobar'),
+(NULL , 'IN', 'BR','Bihar'),
+(NULL , 'IN', 'MZ','Mizoram'),
+(NULL , 'IN', 'DD','Daman and Diu'),
+(NULL , 'IN', 'DN','Dadra and Nagar Haveli'),
+(NULL , 'IN', 'DL','Delhi'),
+(NULL , 'IN', 'NL','Nagaland'),
+(NULL , 'IN', 'WB','West Bengal'),
+(NULL , 'IN', 'HR','Haryana'),
+(NULL , 'IN', 'HP','Himachal Pradesh'),
+(NULL , 'IN', 'AS','Assam'),
+(NULL , 'IN', 'UT','Uttaranchal'),
+(NULL , 'IN', 'JH','Jharkhand'),
+(NULL , 'IN', 'JK','Jammu and Kashmir'),
+(NULL , 'IN', 'UP','Uttar Pradesh'),
+(NULL , 'IN', 'SK','Sikkim'),
+(NULL , 'IN', 'CT','Chhattisgarh'),
+(NULL , 'IN', 'CH','Chandigarh'),
+(NULL , 'IN', 'GA','Goa'),
+(NULL , 'IN', 'GJ','Gujarat'),
+(NULL , 'IN', 'RJ','Rajasthan'),
+(NULL , 'IN', 'MP','Madhya Pradesh'),
+(NULL , 'IN', 'MH','Maharashtra'),
+(NULL , 'IN', 'TN','Tamil Nadu'),
+(NULL , 'IN', 'PY','Puducherry'),
+(NULL , 'IN', 'AP','Andhra Pradesh'),
+(NULL , 'IN', 'TR','Tripura'),
+(NULL , 'IN', 'AR','Arunachal Pradesh'),
+(NULL , 'IN', 'KA','Karnataka'),
+(NULL , 'IN', 'PB','Punjab'),
+(NULL , 'IN', 'ML','Meghalaya'),
+(NULL , 'IN', 'MN','Manipur'),
+(NULL , 'IN', 'OR','Orissa'),
+(NULL , 'IN', 'KL','Kerala');
+
+INSERT INTO `directory_country_region_name` (`locale` ,`region_id` ,`name` ) 
+SELECT 'en_US', tmp.region_id, tmp.default_name FROM `directory_country_region` 
+AS tmp WHERE tmp.country_id='IN';

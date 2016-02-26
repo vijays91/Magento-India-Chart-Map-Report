@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout>
+    <indiachartmap_adminhtml_indiachartmap_map>
+		<reference name="head">
+			<!-- Add CSS -->
+			<action method="addCss">
+				<name helper="indiachartmap/data/jqvmapCss" />
+			</action>
+			
+			<!-- Add JS -->
+			<action method="addJs" ifconfig="indiachartmap_tab/indiachartmap_setting/jquery_enable">
+				<file helper="indiachartmap/data/jQueryJs" />
+			</action>
+			<action method="addJs">
+				<script>indiachartmap/conflict.js</script>
+			</action>			
+			<action method="addJs">
+				<script helper="indiachartmap/data/jqvmapJs" />
+			</action>
+			<action method="addJs">
+				<file helper="indiachartmap/data/jqvmapWorldJs" />
+			</action>
+			<!--
+			<block type="core/text" name="external_js">
+				<action method="setText">
+					<text>
+						<![CDATA[<script type="text/javascript">jQuery.noConflict();</script>]]>					
+					</text>
+				</action>
+			</block>
+			-->
+		</reference>
+    </indiachartmap_adminhtml_indiachartmap_map>
+</layout>
